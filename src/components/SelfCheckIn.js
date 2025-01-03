@@ -23,7 +23,7 @@ const SelfCheckIn = () => {
         console.error("Error loading face-api models:", err);
       }
     };
-  
+
     loadModels();
   }, []);
 
@@ -33,11 +33,7 @@ const SelfCheckIn = () => {
     sessionStorage.setItem(`capturedFace${passengerIndex}`, imageSrc);
   };
 
-  const handleVerifyFace = async (
-    passengerIndex,
-    imageSrc,
-    setIsVerified
-  ) => {
+  const handleVerifyFace = async (passengerIndex, imageSrc, setIsVerified) => {
     if (!isModelsLoaded) {
       alert("Models are still loading. Please wait...");
       return;
@@ -90,17 +86,17 @@ const SelfCheckIn = () => {
 
   const generateBoardingPassPDF = (passengerNumber) => {
     const doc = new jsPDF("landscape");
-  
+
     const flightDetails = JSON.parse(sessionStorage.getItem("selectedFlight"));
     const passengerData = JSON.parse(
       sessionStorage.getItem(`passenger${passengerNumber}`)
     );
-  
+
     if (!passengerData) {
       alert(`Passenger ${passengerNumber} data not found in sessionStorage!`);
       return;
     }
-  
+
     const details = {
       flightNumber: flightDetails.flightNumber,
       flightFrom: flightDetails.from,
@@ -112,18 +108,18 @@ const SelfCheckIn = () => {
       seat: getSeatAssignment(passengerNumber),
       isVerified: sessionStorage.getItem(`isVerified${passengerNumber}`) === "true",
     };
-  
+
     doc.setDrawColor(0, 51, 102);
     doc.setLineWidth(3);
     doc.rect(10, 10, 280, 180);
-  
+
     doc.setFillColor(240, 240, 240);
     doc.rect(12, 12, 276, 176, "F");
-  
+
     doc.setFont("helvetica", "bold");
     doc.setFontSize(20);
     doc.text("Boarding Pass", 140, 30, null, null, "center");
-  
+
     doc.setFontSize(14);
     doc.text(`Flight Number: ${details.flightNumber}`, 20, 50);
     doc.text(`Name: ${details.name}`, 20, 60);
@@ -131,13 +127,13 @@ const SelfCheckIn = () => {
     doc.text(`To: ${details.flightTo}`, 20, 80);
     doc.text(`Date: ${details.flightDate}`, 20, 90);
     doc.text(`Price: ${details.price}`, 20, 100);
-  
+
     doc.text(`Seat: ${details.seat}`, 150, 50);
     doc.text(`Boarding Zone: 1`, 150, 60);
     doc.text(`Gate: A21`, 150, 70);
     doc.text(`Boarding Time: 1500 Hrs`, 150, 80);
     doc.text(`Departure: 1555 Hrs`, 150, 90);
-  
+
     // Conditional text for verification
     if (details.isVerified) {
       doc.setFontSize(70);
@@ -148,10 +144,9 @@ const SelfCheckIn = () => {
       doc.setTextColor(255, 0, 0);
       doc.text("NOT VERIFIED", 140, 140, null, null, "center");
     }
-  
+
     doc.save(`${details.name}_boarding_pass.pdf`);
   };
-  
 
   const getSeatAssignment = (passengerNumber) => {
     const selectedSeats = JSON.parse(sessionStorage.getItem("selectedSeats")) || [];
