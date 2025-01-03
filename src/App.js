@@ -16,7 +16,7 @@ function App() {
   };
 
   return (
-    <Router>     
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="d-flex">
         {/* Sidebar */}
         <div
@@ -53,7 +53,7 @@ function App() {
         <div
           style={{
             flexGrow: 1,
-            backgroundImage: `url('/airplane.jpg')`,
+            backgroundImage: `url(${process.env.PUBLIC_URL + '/airplane.jpg'})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             minHeight: '100vh',
