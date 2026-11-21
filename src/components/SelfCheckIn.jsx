@@ -15,9 +15,9 @@ const SelfCheckIn = () => {
   useEffect(() => {
     const loadModels = async () => {
       try {
-        await faceapi.nets.ssdMobilenetv1.loadFromUri(`${process.env.PUBLIC_URL}/models`);
-        await faceapi.nets.faceLandmark68Net.loadFromUri(`${process.env.PUBLIC_URL}/models`);
-        await faceapi.nets.faceRecognitionNet.loadFromUri(`${process.env.PUBLIC_URL}/models`);
+        await faceapi.nets.ssdMobilenetv1.loadFromUri(`${import.meta.env.BASE_URL}models`);
+        await faceapi.nets.faceLandmark68Net.loadFromUri(`${import.meta.env.BASE_URL}models`);
+        await faceapi.nets.faceRecognitionNet.loadFromUri(`${import.meta.env.BASE_URL}models`);
         setIsModelsLoaded(true);
       } catch (err) {
         console.error("Error loading face-api models:", err);

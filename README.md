@@ -24,7 +24,7 @@ Booking data is kept in the browser's `sessionStorage`. There is no backend.
 
 ## Tech stack
 
-- React 19 (Create React App / `react-scripts`)
+- React 19 (built with [Vite](https://vite.dev))
 - React Router 7
 - Bootstrap 5
 - [face-api.js](https://github.com/justadudewhohacks/face-api.js), with pre-trained models in `public/models`
@@ -40,14 +40,14 @@ npm install
 npm start
 ```
 
-Then open http://localhost:3000. You need a webcam, and the browser must be allowed to use it.
+Then open http://localhost:5173/DigiYatra/. You need a webcam, and the browser must be allowed to use it.
 
-| Script           | Description                                        |
-| ---------------- | -------------------------------------------------- |
-| `npm start`      | Start the development server                       |
-| `npm run build`  | Create a production build                          |
-| `npm run deploy` | Build and publish to GitHub Pages (via `gh-pages`) |
-| `npm test`       | Run tests                                          |
+| Script            | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| `npm start`       | Start the Vite development server                  |
+| `npm run build`   | Create a production build                          |
+| `npm run preview` | Serve the production build locally                 |
+| `npm run deploy`  | Build and publish to GitHub Pages (via `gh-pages`) |
 
 ## Project structure
 

@@ -11,9 +11,9 @@ const FaceRecognition = () => {
   useEffect(() => {
     const loadModels = async () => {
       // Path to the models directory or CDN
-      await faceapi.nets.ssdMobilenetv1.loadFromUri('/models'); // Object detection model
-      await faceapi.nets.faceRecognitionNet.loadFromUri('/models'); // Face recognition model
-      await faceapi.nets.faceLandmark68Net.loadFromUri('/models'); // Landmark detection model
+      await faceapi.nets.ssdMobilenetv1.loadFromUri(import.meta.env.BASE_URL + 'models'); // Object detection model
+      await faceapi.nets.faceRecognitionNet.loadFromUri(import.meta.env.BASE_URL + 'models'); // Face recognition model
+      await faceapi.nets.faceLandmark68Net.loadFromUri(import.meta.env.BASE_URL + 'models'); // Landmark detection model
       setLoading(false); // Set loading to false after models are loaded
     };
 
