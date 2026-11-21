@@ -7,6 +7,7 @@ Digi Yatra is a mock flight booking web app that collects passenger information 
 ![React Router](https://img.shields.io/badge/React_Router-7-CA4245?logo=reactrouter&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap&logoColor=white)
 ![face-api.js](https://img.shields.io/badge/face--api.js-0.22-orange)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Live demo:** https://sharky412.github.io/DigiYatra/
 
@@ -61,3 +62,7 @@ src/
     ├── FaceRecognition.js
     └── BoardingPass.js
 ```
+
+## License
+
+Released under the [MIT License](LICENSE).
